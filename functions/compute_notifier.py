@@ -1,7 +1,6 @@
 import boto3
 import os
 
-region = os.getenv('AWS_REGION', 'us-east-1')
 topic_arn = os.getenv('COMPUTE_NOTIFIER_TOPIC_ARN')
 env = os.getenv('ENVIRONMENT_NAME', 'ENV')
 ec2 = boto3.client('ec2')
