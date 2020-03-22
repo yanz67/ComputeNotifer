@@ -3,7 +3,7 @@
 Compute Notifier stack will provision Cloud Watch event trigger, lambda and an SNS topic.
 The event trigger will be triggered based on the cron expression which will trigger the lambda
 that will push SNS notification if there are any EC2 instances running in the AWS account.  
-The configuration is defined in `cdk.json`
+The configuration is defined in `cdk.json`  
 
 ## Provisioning Compute Notifier
 * Define your configuration in `cdk.json`
@@ -22,6 +22,20 @@ The configuration is defined in `cdk.json`
 You can set deployment environment by setting environment variable `DEPLOY_ENVIRONMENT`  
 `DEPLOY_ENVIRONMENT=prod cdk --profile $AWS_PROFILE synth`  
 Default environment is `dev`
+
+### Adding Auxiliary Configuration
+The `cdk.json` configuration can be overwritten per invironment by adding a config file into
+the `aux_config` folder.  The name of the file should be `{env}.json`  
+The structure of aux config should be:  
+
+```json
+{
+  "emails": [
+    "email address"
+  ],
+  "schedule_expression": "cron(* 18 ? * * *)"
+}
+``` 
 
 
 ### Notes

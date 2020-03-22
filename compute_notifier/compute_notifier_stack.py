@@ -10,10 +10,20 @@ from aws_cdk import (
 
 
 class ComputeNotifierStack(core.Stack):
-    def __init__(self, scope: core.Construct, id: str, deploy_env: str, **kwargs):
+    def __init__(self, scope: core.Construct,
+                 id: str,
+                 deploy_env: str,
+                 aux_config: {},
+                 **kwargs):
         super().__init__(scope, id, **kwargs)
 
         env_settings = self.node.try_get_context(deploy_env)
+
+        if not env_settings:
+            raise Exception(f'Configuration for {deploy_env} environment not found')
+
+        if aux_config:
+            env_settings.update(aux_config)
 
         notifier_topic = sns.Topic(self,
                                    id=f'{deploy_env}-computeNotifierTopic',

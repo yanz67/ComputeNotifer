@@ -9,3 +9,8 @@ __pycache__
 # CDK asset staging directory
 .cdk.staging
 cdk.out
+
+# Auxulary configuration
+aux_config/*
+# exception to the rule
+!aux_config/.gitkeep
