@@ -1,0 +1,10 @@
+{
+  "app": "python3 app.py",
+  "context": {
+    "dev": {
+      "emails": [],
+      "schedule_expression": "cron(5 * ? * * *)",
+      "aws_region": "us-east-1"
+    }
+  }
+}
