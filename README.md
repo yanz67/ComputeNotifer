@@ -8,6 +8,8 @@ The configuration is defined in `cdk.json`
 ## Provisioning Compute Notifier
 * Define your configuration in `cdk.json`
     * Make sure to at least on email for notification
+    * Update `schedule_expression` to define when is the event triggered
+        * https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html
 * Bootstrap  
 `cdk --profile $AWS_PROFILE bootstrap`
 * synth  
