@@ -7,7 +7,7 @@ The configuration is defined in `cdk.json`
 
 ## Provisioning Compute Notifier
 * Define your configuration in `cdk.json`
-    * Make sure to at least on email for notification
+    * Make sure to at add least one email for notifications
     * Update `schedule_expression` to define when is the event triggered
         * https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html
 * Bootstrap  
