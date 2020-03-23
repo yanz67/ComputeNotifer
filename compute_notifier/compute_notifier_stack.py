@@ -17,13 +17,13 @@ class ComputeNotifierStack(core.Stack):
                  **kwargs):
         super().__init__(scope, id, **kwargs)
 
-        env_settings = self.node.try_get_context(deploy_env)
-
-        if not env_settings:
-            raise Exception(f'Configuration for {deploy_env} environment not found')
+        env_settings = self.node.try_get_context(deploy_env) or {}
 
         if aux_config:
             env_settings.update(aux_config)
+
+        if not env_settings:
+            raise Exception(f'Configuration for {deploy_env} environment not found')
 
         notifier_topic = sns.Topic(self,
                                    id=f'{deploy_env}-computeNotifierTopic',
