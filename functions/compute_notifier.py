@@ -13,7 +13,7 @@ def handler(event, context):
     if running_instances > 0:
         try:
             sns.publish(TopicArn=topic_arn,
-                        Message=f"""There are {running_instances} instances running in {env}""")
+                        Message=f"""There are {running_instances} instances running in {env} environment""")
         except Exception as e:
             return {
                 'statusCode': 500,

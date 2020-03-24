@@ -39,6 +39,7 @@ The structure of aux config should be:
 
 
 ### Notes
+Cron time is in GMT
 
 #### Requirements
 * AWS CDK  
